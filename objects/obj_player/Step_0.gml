@@ -12,11 +12,6 @@ if (keyboard_check_pressed(ord("A")) or keyboard_check_pressed(vk_left))
 		player_direction_y = 0;
 		image_xscale = -1;
 	}
-	else
-	{
-		//player_direction_x = 0;
-		//player_direction_y = 0;
-	}
 }
 
 if (keyboard_check_pressed(ord("D")) or keyboard_check_pressed(vk_right))
@@ -26,11 +21,6 @@ if (keyboard_check_pressed(ord("D")) or keyboard_check_pressed(vk_right))
 		player_direction_x = 1;
 		player_direction_y = 0;
 		image_xscale = 1;
-	}
-	else
-	{
-		//player_direction_x = 0;
-		//player_direction_y = 0;
 	}
 }	
 
@@ -55,11 +45,22 @@ if (keyboard_check_pressed(ord("S")) or keyboard_check_pressed(vk_down))
 
 // Collision check for movement
 
-if (not (player_direction_x == 0))
+if ((not (player_direction_x == 0)) and (not player_frozen))
 {
 	if (not (place_meeting(x+player_speed * player_direction_x, y, obj_collider)))
 	{	
 		x += player_speed * player_direction_x;
+	}
+}
+
+// if you're frozen, reduce the frozen countdown timer
+if player_frozen
+{
+	player_frozen_countdown -= 1;
+	if player_frozen_countdown <= 0
+	{
+		player_frozen = false;
+		player_frozen_countdown = 0;
 	}
 }
 
@@ -135,5 +136,17 @@ if enemyhit
 	audio_play_sound(snd_aah,10,false);
 	event_user(0); // call Player Death event
 }
+
+// spiderweb check -- did you get hit by a spiderweb?
+var spiderwebhit = instance_place(x,y,obj_spiderweb);
+if spiderwebhit
+{
+	// first move the player to center of the spiderweb
+	// -- TODO
+	// then set a countdown timer for being allowed to move again
+	player_frozen = true;
+	player_frozen_countdown = player_frozen_countdown_max;
+}
+
 
 } // end gameover check
