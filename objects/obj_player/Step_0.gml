@@ -53,16 +53,6 @@ if ((not (player_direction_x == 0)) and (not player_frozen))
 	}
 }
 
-// if you're frozen, reduce the frozen countdown timer
-if player_frozen
-{
-	player_frozen_countdown -= 1;
-	if player_frozen_countdown <= 0
-	{
-		player_frozen = false;
-		player_frozen_countdown = 0;
-	}
-}
 
 if (not (player_direction_y == 0))
 {
@@ -93,7 +83,7 @@ if player_jumping
 
 // gravity check, falling with collision check, also no gravity if on ladder!
 // also increase gravity (silly acceleration, bad physics!) each step.
-if (not place_meeting(x,y+player_gravity, obj_collider)) and (not (place_meeting(x, y+player_speed * player_direction_x, obj_laddercollider)))
+if (not player_frozen) and (not place_meeting(x,y+player_gravity, obj_collider)) and (not (place_meeting(x, y+player_speed * player_direction_x, obj_laddercollider)))
 {
 	y += player_gravity;
 	player_gravity += 0.1;
@@ -139,13 +129,31 @@ if enemyhit
 
 // spiderweb check -- did you get hit by a spiderweb?
 var spiderwebhit = instance_place(x,y,obj_spiderweb);
-if spiderwebhit
+if (spiderwebhit and (not spiderwebhit.var_spiderweb_broken))
 {
-	// first move the player to center of the spiderweb
-	// -- TODO
-	// then set a countdown timer for being allowed to move again
-	player_frozen = true;
-	player_frozen_countdown = player_frozen_countdown_max;
+	if (not spiderwebhit.var_spiderweb_grabbing)
+	{
+		// first move the player to center of the spiderweb
+		x = spiderwebhit.x;
+		y = spiderwebhit.y;
+		// -- TODO
+		// then set a countdown timer for being allowed to move again
+		player_frozen = true;
+		spiderwebhit.var_spiderweb_frozen_time = current_time + spiderwebhit.var_spiderweb_frozen_time_max;
+		spiderwebhit.var_spiderweb_grabbing = true;
+		show_debug_message(string(spiderwebhit.var_spiderweb_frozen_time));
+	}
+	else
+	{
+		if (current_time > spiderwebhit.var_spiderweb_frozen_time)
+		{
+			show_debug_message("GRABBING FINISHED");
+			spiderwebhit.var_spiderweb_broken = true;
+			spiderwebhit.sprite_index = spr_spiderweb_broken;
+			player_frozen = false;
+		}
+	}
+	
 }
 
 

@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_player_lose_game.mp3",
-  "duration": 3.400875,
+  "duration": 3.395875,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",

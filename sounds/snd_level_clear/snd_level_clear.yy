@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_level_clear.mp3",
-  "duration": 0.997653,
+  "duration": 0.992653,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",

@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "snd_waaa.mp3",
-  "duration": 3.165816,
+  "duration": 3.160816,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
