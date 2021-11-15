@@ -1,6 +1,7 @@
 /// @description Player Death
 // You can write your code in this editor
 
+audio_play_sound(snd_waaa,10,false);
 lives -= 1;
 if (lives >= 0)
 {

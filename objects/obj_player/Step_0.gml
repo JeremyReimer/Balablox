@@ -117,14 +117,21 @@ if keyend
 // 1. death by falling
 if y > 850
 {
-	audio_play_sound(snd_waaa,10,false);
+
 	event_user(0); // call Player Death event
 }
+// 2. death by hitting enemy
 var enemyhit = instance_place(x,y,obj_enemy);
 if enemyhit
 {
-	audio_play_sound(snd_aah,10,false);
 	event_user(0); // call Player Death event
+}
+//  3. death by hitting fireball
+var fireballhit = instance_place(x,y,obj_nastie_fireball);
+if fireballhit
+{
+	event_user(0); // call Player Death event
+	with (fireballhit) instance_destroy();
 }
 
 // spiderweb check -- did you get hit by a spiderweb?

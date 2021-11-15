@@ -1,16 +1,13 @@
 {
   "spriteId": {
-    "name": "spr_blocker",
-    "path": "sprites/spr_blocker/spr_blocker.yy",
+    "name": "spr_nastie_fireball",
+    "path": "sprites/spr_nastie_fireball/spr_nastie_fireball.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "obj_enemy",
-    "path": "objects/obj_enemy/obj_enemy.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -34,7 +31,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_blocker",
+  "name": "obj_nastie_fireball",
   "tags": [],
   "resourceType": "GMObject",
 }
