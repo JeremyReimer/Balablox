@@ -31,6 +31,8 @@
     {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},"order":1,},
     {"id":{"name":"spr_block","path":"sprites/spr_block/spr_block.yy",},"order":10,},
     {"id":{"name":"spr_spiderweb","path":"sprites/spr_spiderweb/spr_spiderweb.yy",},"order":12,},
+    {"id":{"name":"spr_nastie","path":"sprites/spr_nastie/spr_nastie.yy",},"order":14,},
+    {"id":{"name":"obj_nastie","path":"objects/obj_nastie/obj_nastie.yy",},"order":12,},
     {"id":{"name":"spr_chaser","path":"sprites/spr_chaser/spr_chaser.yy",},"order":7,},
     {"id":{"name":"obj_laddercollider","path":"objects/obj_laddercollider/obj_laddercollider.yy",},"order":2,},
     {"id":{"name":"spr_coin","path":"sprites/spr_coin/spr_coin.yy",},"order":4,},
@@ -85,7 +87,7 @@
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"aaah.mp3","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "2.3.5.589",
+    "IDEVersion": "2.3.6.595",
   },
   "resourceVersion": "1.4",
   "name": "Balablox",
