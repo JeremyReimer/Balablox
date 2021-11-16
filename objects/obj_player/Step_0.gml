@@ -165,3 +165,19 @@ if (spiderwebhit and (not spiderwebhit.var_spiderweb_broken))
 
 
 } // end gameover check
+else // game really is over
+{
+	if mouse_check_button_pressed(mb_left)
+	{
+		tempx = window_mouse_get_x();
+		tempy = window_mouse_get_y();
+		if (tempx > 417 and tempx < 618 and tempy > 383 and tempy < 429)
+		{
+			show_debug_message("START NEW GAME");
+			global.gameover = false;
+			room_goto(0);
+		}
+	}
+	// x > 417 x < 618
+	// y > 383 y M 429
+}
