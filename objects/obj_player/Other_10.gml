@@ -10,6 +10,7 @@ if (lives >= 0)
 	// make player invulnerable
 	player_direction_x = 0; // stop moving left or right
 	player_invulnerable = true;
+	player_frozen = false;
 	player_invulnerable_timer = current_time + player_invulnerable_timer_max;
 	
 }
