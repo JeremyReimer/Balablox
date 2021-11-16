@@ -15,5 +15,5 @@ player_frozen_countdown_max = 10;
 player_frozen_countdown = 0;
 
 player_invulnerable = false;
-player_invulnerable_countdown_max = 50;
-player_invulnerable_countdown = 0;
+player_invulnerable_timer_max = 5000;
+player_invulnerable_timer = 0;

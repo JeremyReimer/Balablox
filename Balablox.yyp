@@ -6,6 +6,7 @@
     {"id":{"name":"spr_blocker","path":"sprites/spr_blocker/spr_blocker.yy",},"order":8,},
     {"id":{"name":"obj_collider","path":"objects/obj_collider/obj_collider.yy",},"order":1,},
     {"id":{"name":"snd_aah","path":"sounds/snd_aah/snd_aah.yy",},"order":4,},
+    {"id":{"name":"spr_player_invisible","path":"sprites/spr_player_invisible/spr_player_invisible.yy",},"order":17,},
     {"id":{"name":"obj_key","path":"objects/obj_key/obj_key.yy",},"order":4,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
     {"id":{"name":"spr_spider","path":"sprites/spr_spider/spr_spider.yy",},"order":11,},

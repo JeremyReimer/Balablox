@@ -122,13 +122,13 @@ if y > 850
 }
 // 2. death by hitting enemy
 var enemyhit = instance_place(x,y,obj_enemy);
-if enemyhit
+if enemyhit and (not player_invulnerable)
 {
 	event_user(0); // call Player Death event
 }
 //  3. death by hitting fireball
 var fireballhit = instance_place(x,y,obj_nastie_fireball);
-if fireballhit
+if fireballhit and (not player_invulnerable)
 {
 	event_user(0); // call Player Death event
 	with (fireballhit) instance_destroy();
@@ -163,6 +163,24 @@ if (spiderwebhit and (not spiderwebhit.var_spiderweb_broken))
 	
 }
 
+if player_invulnerable
+{
+	if (random(1) > 0.5)
+	{
+		sprite_index = spr_player_invisible;
+	}
+	else
+	{
+		sprite_index = spr_player;
+	}
+	if current_time > player_invulnerable_timer
+	{
+		player_invulnerable = false;
+		sprite_index = spr_player;
+	}
+}
+
+
 
 } // end gameover check
 else // game really is over
@@ -171,13 +189,24 @@ else // game really is over
 	{
 		tempx = window_mouse_get_x();
 		tempy = window_mouse_get_y();
+		show_debug_message("x: " + string(tempx) + " y: " + string(tempy));
 		if (tempx > 417 and tempx < 618 and tempy > 383 and tempy < 429)
 		{
 			show_debug_message("START NEW GAME");
 			global.gameover = false;
 			room_goto(0);
 		}
+		if (tempx > 871 and tempx < 1007 and tempy > 382 and tempy < 424)
+		{
+			show_debug_message("QUIT GAME");
+			mouse_clear(mb_left);
+			game_end();
+		}
 	}
+	// play again button
 	// x > 417 x < 618
 	// y > 383 y M 429
+	// quit button
+	// x: 871 y: 424
+	// x: 1007 y: 382
 }
