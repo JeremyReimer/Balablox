@@ -163,6 +163,13 @@ if (spiderwebhit and (not spiderwebhit.var_spiderweb_broken))
 	
 }
 
+// check to see if on a zipline tile
+temp_lay_id = layer_get_id("Tiles_1");
+temp_map_id = layer_tilemap_get_id(temp_lay_id);
+temp_map_tile = tilemap_get_at_pixel(temp_map_id,x,y);
+show_debug_message("Tilemap: " + string(temp_map_tile));
+// seems like the zipline is Tile 24?
+
 if player_invulnerable
 {
 	if (random(1) > 0.5)
