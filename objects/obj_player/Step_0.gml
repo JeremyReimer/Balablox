@@ -81,9 +81,9 @@ if player_jumping
 	y -= player_jump_speed;
 }
 
-// gravity check, falling with collision check, also no gravity if on ladder!
+// gravity check, falling with collision check, also no gravity if on ladder, or on zipline
 // also increase gravity (silly acceleration, bad physics!) each step.
-if (not player_frozen) and (not place_meeting(x,y+player_gravity, obj_collider)) and (not (place_meeting(x, y+player_speed * player_direction_x, obj_laddercollider)))
+if (not player_frozen) and (not player_hanging) and (not place_meeting(x,y+player_gravity, obj_collider)) and (not (place_meeting(x, y+player_speed * player_direction_x, obj_laddercollider)))
 {
 	y += player_gravity;
 	player_gravity += 0.1;
@@ -167,8 +167,17 @@ if (spiderwebhit and (not spiderwebhit.var_spiderweb_broken))
 temp_lay_id = layer_get_id("Tiles_1");
 temp_map_id = layer_tilemap_get_id(temp_lay_id);
 temp_map_tile = tilemap_get_at_pixel(temp_map_id,x,y);
-show_debug_message("Tilemap: " + string(temp_map_tile));
-// seems like the zipline is Tile 24?
+// show_debug_message("Tilemap: " + string(temp_map_tile));
+show_debug_message("Vertical y: " + string(y) + " Modulo of vertical: " + string(round(y mod 32)));
+// seems like the zipline is Tile 24? But also need to check to see if correct alignment with zip
+if (temp_map_tile == 24 and (round(y mod 32) > 6) and (round(y mod 32) < 9))
+{
+	player_hanging = true;
+}
+else
+{
+	player_hanging = false;
+}
 
 if player_invulnerable
 {
