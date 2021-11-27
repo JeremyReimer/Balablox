@@ -40,6 +40,10 @@ if (keyboard_check_pressed(ord("S")) or keyboard_check_pressed(vk_down))
 		player_direction_y = 1;
 	}
 	player_direction_x = 0;
+	if player_hanging // can break player hanging with down key
+	{
+		player_hanging = false;
+	}
 }
 
 
@@ -74,6 +78,10 @@ if (not (player_direction_y == 0))
 if keyboard_check_pressed(vk_space)
 {
 	player_jumping = true;
+	if player_hanging // if you jump while hanging you aren't hanging any more
+	{
+		player_hanging = false;
+	}
 }
 
 if player_jumping
@@ -168,11 +176,11 @@ temp_lay_id = layer_get_id("Tiles_1");
 temp_map_id = layer_tilemap_get_id(temp_lay_id);
 temp_map_tile = tilemap_get_at_pixel(temp_map_id,x,y);
 // show_debug_message("Tilemap: " + string(temp_map_tile));
-show_debug_message("Vertical y: " + string(y) + " Modulo of vertical: " + string(round(y mod 32)));
+// show_debug_message("Vertical y: " + string(y) + " Modulo of vertical: " + string(round(y mod 32)));
 // seems like the zipline is Tile 24? But also need to check to see if correct alignment with zip
-if (temp_map_tile == 24 and (round(y mod 32) > 6) and (round(y mod 32) < 9))
+if (temp_map_tile == 24 and (y mod 32 > 6) and (y mod 32 < 8))
 {
-	player_hanging = true;
+		player_hanging = true;
 }
 else
 {
