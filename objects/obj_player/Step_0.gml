@@ -111,6 +111,32 @@ if inst
 	audio_play_sound(snd_coin_collect,10,false);
 }
 
+// diamond check-- have you collected a diamond
+var inst = instance_place(x,y,obj_diamond);
+if inst
+{
+	instance_destroy(inst);
+	score += 100;
+	sprite_index = spr_player_powerup;
+	player_powerup = true;
+	player_powerup_timer = current_time + player_powerup_timer_max; // invulnerable for so long
+	audio_play_sound(snd_diamond,10,false);
+}
+
+// are you SUPER POWERED???
+if player_powerup
+{
+	if keyboard_check_pressed(vk_enter) // Fire player fireball
+	{
+		instance_create_layer(x,y,"Instances",obj_player_fireball);	
+	}
+	if current_time > player_powerup_timer
+	{
+		player_powerup = false;
+		sprite_index = spr_player;
+	}
+}
+
 // end of level check -- did you get to the key?
 var keyend = instance_place(x,y,obj_key);
 if keyend
