@@ -86,7 +86,10 @@ if keyboard_check_pressed(vk_space)
 
 if player_jumping
 {
-	y -= player_jump_speed;
+	if ((not player_frozen) and (not (place_meeting(x,y-player_jump_speed, obj_collider))))
+	{
+		y -= player_jump_speed;
+	}
 }
 
 // gravity check, falling with collision check, also no gravity if on ladder, or on zipline
