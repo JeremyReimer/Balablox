@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-enemy_speed = 0.6;
+enemy_speed = 0.2;
 enemy_behavior = 1; // default is to chase the player, 2 is to move randomly
 enemy_countdown_min = 10;  // minimum time enemy can move in a random direction
 enemy_countdown_max = 100; // for resetting enemy countdown

@@ -86,6 +86,10 @@ if keyboard_check_pressed(vk_space)
 
 if player_jumping
 {
+	if (place_meeting(x,y-player_jump_speed, obj_collider))
+	{
+		player_jumping = false; // if you hit a ceiling you stop jumping
+	}
 	if ((not player_frozen) and (not (place_meeting(x,y-player_jump_speed, obj_collider))))
 	{
 		y -= player_jump_speed;

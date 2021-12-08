@@ -31,6 +31,7 @@
     {"id":{"name":"spr_nastie_fireball","path":"sprites/spr_nastie_fireball/spr_nastie_fireball.yy",},"order":5,},
     {"id":{"name":"snd_level_clear","path":"sounds/snd_level_clear/snd_level_clear.yy",},"order":1,},
     {"id":{"name":"spr_tileset1","path":"sprites/spr_tileset1/spr_tileset1.yy",},"order":1,},
+    {"id":{"name":"Room4","path":"rooms/Room4/Room4.yy",},"order":4,},
     {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},"order":3,},
     {"id":{"name":"obj_chaser","path":"objects/obj_chaser/obj_chaser.yy",},"order":5,},
     {"id":{"name":"obj_breaker","path":"objects/obj_breaker/obj_breaker.yy",},"order":7,},
@@ -69,6 +70,7 @@
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
     {"roomId":{"name":"Room3","path":"rooms/Room3/Room3.yy",},},
+    {"roomId":{"name":"Room4","path":"rooms/Room4/Room4.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
