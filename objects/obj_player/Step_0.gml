@@ -4,46 +4,80 @@
 if (not global.gameover)
 {
 
-if (keyboard_check_pressed(ord("A")) or keyboard_check_pressed(vk_left))
+if player_accelerating
 {
-	if player_direction_x != -1
-	{	
-		player_direction_x = -1;
-		player_direction_y = 0;
-		image_xscale = -1;
+	player_speed += player_acceleration_rate;
+	if player_speed > player_speed_max
+	{
+		player_speed = player_speed_max
 	}
 }
 
-if (keyboard_check_pressed(ord("D")) or keyboard_check_pressed(vk_right))
+if (keyboard_check(ord("A")) or keyboard_check(vk_left))
 {
-	if player_direction_x != 1
-	{
+		player_direction_x = -1;
+		player_direction_y = 0;
+		image_xscale = -1;	
+		if (not player_accelerating)
+		{
+			player_accelerating = true;
+			player_decelerating = false;
+		}
+}
+else if (keyboard_check(ord("D")) or keyboard_check(vk_right))
+{
 		player_direction_x = 1;
 		player_direction_y = 0;
 		image_xscale = 1;
-	}
-}	
+		if (not player_accelerating)
+		{
+			player_accelerating = true;
+			player_decelerating = false;
+		}
+}
+else
+{
+	player_accelerating = false;
+	player_decelerating = true;
+}
 
-if (keyboard_check_pressed(ord("W")) or keyboard_check_pressed(vk_up))
+if player_decelerating
+{
+	player_speed -= player_deceleration_rate;
+	if player_speed < 0
+	{
+		player_direction_x = 0;
+		player_direction_y = 0;
+		player_speed = 0
+	}
+}
+
+if (keyboard_check(ord("W")) or keyboard_check(vk_up))
 {
 	if place_meeting(x,y-player_speed,obj_laddercollider)
 	{
 		player_direction_y = -1;
 	}
 	player_direction_x = 0;
-}
 
-if (keyboard_check_pressed(ord("S")) or keyboard_check_pressed(vk_down))
+}
+else if (keyboard_check(ord("S")) or keyboard_check(vk_down))
 {
 	if place_meeting(x,y+player_speed,obj_laddercollider)
 	{
 		player_direction_y = 1;
 	}
 	player_direction_x = 0;
+
 	if player_hanging // can break player hanging with down key
 	{
 		player_hanging = false;
 	}
+}
+else
+{
+	player_direction_y = 0;
+
 }
 
 
@@ -62,7 +96,7 @@ if (not (player_direction_y == 0))
 {
 	if (not (place_meeting(x, y+player_speed * player_direction_y, obj_collider)))
 	{	
-		y += player_speed * player_direction_y;
+		y += player_speed_max * player_direction_y; // no acceleration on ladders
 	}
 	// special ladder check for vertical movement
 	// still some weird ladder behavior when at top, fix this later
