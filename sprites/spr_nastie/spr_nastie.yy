@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_nastie","path":"sprites/spr_nastie/spr_nastie.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_nastie",
     "tags": [],
     "resourceType": "GMSequence",

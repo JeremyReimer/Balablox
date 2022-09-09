@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_diamond","path":"sprites/spr_diamond/spr_diamond.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_diamond",
     "tags": [],
     "resourceType": "GMSequence",

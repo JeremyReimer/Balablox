@@ -15,6 +15,10 @@ if player_accelerating
 
 if (keyboard_check(ord("A")) or keyboard_check(vk_left))
 {
+		if player_direction_x == 1
+		{
+			player_speed = 0;
+		}
 		player_direction_x = -1;
 		player_direction_y = 0;
 		image_xscale = -1;	
@@ -26,6 +30,10 @@ if (keyboard_check(ord("A")) or keyboard_check(vk_left))
 }
 else if (keyboard_check(ord("D")) or keyboard_check(vk_right))
 {
+		if player_direction_x == -1
+		{
+			player_speed = 0;
+		}
 		player_direction_x = 1;
 		player_direction_y = 0;
 		image_xscale = 1;

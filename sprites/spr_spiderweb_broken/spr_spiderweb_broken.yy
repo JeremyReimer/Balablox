@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_spiderweb_broken","path":"sprites/spr_spiderweb_broken/spr_spiderweb_broken.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_spiderweb_broken",
     "tags": [],
     "resourceType": "GMSequence",

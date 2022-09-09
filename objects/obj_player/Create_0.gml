@@ -6,14 +6,14 @@ player_direction_x = 0;
 player_direction_y = 0;
 player_accelerating = false; // when you start or stop moving, there's a small acceleration period
 player_decelerating = false; // same with deceleration
-player_acceleration_rate = 0.1;
+player_acceleration_rate = 0.3;
 player_deceleration_rate = 0.1;
 player_speed = 0;
 player_speed_max = 3;
-player_jump_speed = 5;
+player_jump_speed = 5.4;
 player_jumping = false;
 player_absolute_gravity = 1;
-player_gravity = 1;
+player_gravity = 1.5;
 
 player_frozen = false;
 player_hanging = false;

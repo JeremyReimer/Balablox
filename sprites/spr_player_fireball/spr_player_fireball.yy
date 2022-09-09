@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_player_fireball","path":"sprites/spr_player_fireball/spr_player_fireball.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_player_fireball",
     "tags": [],
     "resourceType": "GMSequence",

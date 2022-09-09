@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_chaser","path":"sprites/spr_chaser/spr_chaser.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_chaser",
     "tags": [],
     "resourceType": "GMSequence",

@@ -5,6 +5,6 @@ lives = 3;
 global.level = 1;
 global.gameover = 0;
 
-// Load first level
+// Load first level IF YOU CLICK START
 
-room_goto_next();
+// room_goto_next();

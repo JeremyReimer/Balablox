@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_nastie_fireball","path":"sprites/spr_nastie_fireball/spr_nastie_fireball.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_nastie_fireball",
     "tags": [],
     "resourceType": "GMSequence",

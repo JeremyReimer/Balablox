@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_zipline","path":"sprites/spr_zipline/spr_zipline.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_zipline",
     "tags": [],
     "resourceType": "GMSequence",

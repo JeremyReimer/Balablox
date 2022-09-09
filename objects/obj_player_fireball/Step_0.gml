@@ -19,4 +19,5 @@ if inst
 	instance_destroy(inst);
 	audio_play_sound(snd_enemy_dying,10,false);
 	instance_destroy();
+	score += 200;
 }
