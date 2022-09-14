@@ -43,3 +43,9 @@ if (mx > 0 and my > 0 and mx < (32 * 40) and my < (32 * 24))
 	tile_selected_y = floor(my / 32);
 	draw_sprite(spr_tile_select, 0, tile_selected_x * 32, tile_selected_y * 32);
 }
+
+// Draw save icon
+draw_sprite(spr_saveicon,0,tile_select_x, tile_select_y + 18 * 32);
+
+// Draw quot icon
+draw_sprite(spr_quiticon,0,tile_select_x, tile_select_y + 21 * 32);

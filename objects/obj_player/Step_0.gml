@@ -4,6 +4,12 @@
 if (not global.gameover)
 {
 
+// TEMPORARY QUIT COMMAND TO GO TO MAIN MENU
+if (keyboard_check(ord("X")))
+{
+	room_goto(asset_get_index("Room0"));
+}
+
 if player_accelerating
 {
 	player_speed += player_acceleration_rate;

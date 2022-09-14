@@ -1,10 +1,14 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "obj_laddercollider",
   "spriteId": {
     "name": "spr_laddercollider",
     "path": "sprites/spr_laddercollider/spr_laddercollider.yy",
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
@@ -27,8 +31,4 @@
     "name": "Objects",
     "path": "folders/Objects.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "obj_laddercollider",
-  "tags": [],
-  "resourceType": "GMObject",
 }

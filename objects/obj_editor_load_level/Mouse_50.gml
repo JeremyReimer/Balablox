@@ -12,8 +12,9 @@ if (mx > tile_select_x and my > tile_select_y and mx < (tile_select_x + 32) and 
 }
 
 // check if in bounds of editing area, and if so, update the tile array (grid thingy)
-if (mx > 0 and my > 0 and mx < (32 * 40) and my < (32 * 24))
+// it's goddamn magic
+if (mx > 0 and my > 0 and mx < (32 * 38 + 1) and my < (32 * 24))
 {
-	file_grid[# tile_selected_x, tile_selected_y] = selected_tile;
+	file_grid[# tile_selected_x, tile_selected_y] = available_tiles[selected_tile];
 }
 
