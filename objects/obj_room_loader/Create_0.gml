@@ -1,6 +1,10 @@
+/// @description Insert description here
+// You can write your code in this editor
+
+
 // display level, levels are 42 x 24 tiles, enemies take up 2 x 2 tiles but can be placed anywhere
 
-var level_to_edit = 1;
+var level_to_edit = room;
 var tile_max_x = 42;
 var tile_max_y = 24;
 var lay_id = layer_get_id("Tiles_1");
@@ -27,7 +31,7 @@ for (j = 1; j < tile_max_y; j++)
 			instance_create_layer(k * 32, j * 32, ladder_id, obj_laddercollider);
 		}
 		// If the tile is any sort of block, create a collider instance on the Colliders layer
-		if (tile = 1 or tile = 3 or tile = 4 or tile = 20 or tile = 21)
+		if (tile = 1 or tile = 4 or tile = 20 or tile = 21)
 		{
 			instance_create_layer(k * 32, j * 32, collider_id, obj_collider);
 		}

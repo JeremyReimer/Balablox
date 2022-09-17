@@ -6,8 +6,9 @@
 
 var tile_width = 32;
 var tile_height = 32;
-var lay_id = layer_get_id("Tiles_1");
-var map_id = layer_tilemap_get_id(lay_id);
+
+//var lay_id = layer_get_id("Tiles_1");
+//var map_id = layer_tilemap_get_id(lay_id);
 //show_debug_message(string(map_id));
 
 // Draw 42 x 24 grid of tiles for the map itself, based on the CSV file we loaded in the Create event
@@ -40,6 +41,24 @@ draw_sprite_ext(spr_diamond, 0, tile_select_x + 16, tile_select_y + 12 * 32, .5,
 draw_sprite_ext(spr_key, 0, tile_select_x + 16, tile_select_y + 13 * 32, .5, .5, 0, c_white, 1);
 draw_sprite_ext(spr_spiderweb, 0, tile_select_x + 16, tile_select_y + 14 * 32, .5, .5, 0, c_white, 1);
 draw_sprite_ext(spr_player, 0, tile_select_x + 16, tile_select_y + 15 * 32, .5, .5, 0, c_white, 1);
+
+// Draw left and right arrows
+if (level_to_edit > 1)
+{
+	draw_sprite_ext(spr_arrow_left, 0, tile_select_x - 32, tile_select_y + 16 * 32, .5, .5, 0, c_white, 1);
+}
+else
+{
+	draw_sprite_ext(spr_arrow_left_greyed, 0, tile_select_x - 32, tile_select_y + 16 * 32, .5, .5, 0, c_white, 1);
+}
+if (level_to_edit < level_max)
+{
+	draw_sprite_ext(spr_arrow_right, 0, tile_select_x, tile_select_y + 16 * 32, .5, .5, 0, c_white, 1);
+}
+	else
+{
+	draw_sprite_ext(spr_arrow_right_greyed, 0, tile_select_x, tile_select_y + 16 * 32, .5, .5, 0, c_white, 1);
+}
 
 // Draw all objects in the object list
 if ds_list_size(saved_objects) > 0
@@ -107,5 +126,5 @@ if (mx > 0 and my > 0 and mx < (31 * 40) and my < (32 * 24))
 // Draw save icon
 draw_sprite(spr_saveicon,0,tile_select_x, tile_select_y + 18 * 32);
 
-// Draw quot icon
+// Draw quit icon
 draw_sprite(spr_quiticon,0,tile_select_x, tile_select_y + 21 * 32);
