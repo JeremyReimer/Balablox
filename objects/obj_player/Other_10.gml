@@ -5,8 +5,8 @@ audio_play_sound(snd_waaa,10,false);
 lives -= 1;
 if (lives >= 0)
 {
-	x = 600; // temporary, fix later
-	y = 480;
+	x = global.player_respawn_x; // respawn to original load location
+	y = global.player_respawn_y;
 	// make player invulnerable
 	player_direction_x = 0; // stop moving left or right
 	player_invulnerable = true;

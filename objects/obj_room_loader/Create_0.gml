@@ -83,6 +83,8 @@ if ds_list_size(saved_objects) > 0
 			break;
 			case 10:
 				instance_create_layer(saved_objects[| j + 1], saved_objects[| j + 2], instances_id, obj_player);
+				global.player_respawn_x = saved_objects[| j + 1]; // global variable to tell player where to respawn
+				global.player_respawn_y = saved_objects[| j + 2];
 			break;		
 		}
 	}
