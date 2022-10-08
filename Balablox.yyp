@@ -69,6 +69,7 @@
     {"id":{"name":"RoomFinalBoss","path":"rooms/RoomFinalBoss/RoomFinalBoss.yy",},"order":1,},
     {"id":{"name":"obj_titlescreen","path":"objects/obj_titlescreen/obj_titlescreen.yy",},"order":18,},
     {"id":{"name":"spr_zipline","path":"sprites/spr_zipline/spr_zipline.yy",},"order":18,},
+    {"id":{"name":"snd_final_boss_music","path":"sounds/snd_final_boss_music/snd_final_boss_music.yy",},"order":10,},
     {"id":{"name":"Room7","path":"rooms/Room7/Room7.yy",},"order":9,},
     {"id":{"name":"spr_block","path":"sprites/spr_block/spr_block.yy",},"order":10,},
     {"id":{"name":"spr_arrow_right_greyed","path":"sprites/spr_arrow_right_greyed/spr_arrow_right_greyed.yy",},"order":31,},

@@ -8,3 +8,4 @@ enemy_countdown_max = 100; // for resetting enemy countdown
 enemy_countdown = 100; // default countdown until changing behavior
 enemy_random = 0.5; // 50% chance of changing to random move
 enemy_random_direction = 1; // default random direction
+image_speed = 0.3; // slow the animation
