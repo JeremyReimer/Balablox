@@ -68,7 +68,7 @@ if player_decelerating
 
 if (keyboard_check(ord("W")) or keyboard_check(vk_up))
 {
-	if place_meeting(x,y-player_speed,obj_laddercollider)
+	if place_meeting(x,y,obj_laddercollider)
 	{
 		player_direction_y = -1;
 	}
@@ -77,7 +77,8 @@ if (keyboard_check(ord("W")) or keyboard_check(vk_up))
 }
 else if (keyboard_check(ord("S")) or keyboard_check(vk_down))
 {
-	if place_meeting(x,y+player_speed,obj_laddercollider)
+	// check if you can go down ladder
+	if place_meeting(x,y+5,obj_laddercollider)
 	{
 		player_direction_y = 1;
 	}
@@ -95,30 +96,36 @@ else
 }
 
 
-// Collision check for movement
-
+// Update player position with movement in X direction
 if ((not (player_direction_x == 0)) and (not player_frozen))
 {
 	if (not (place_meeting(x+player_speed * player_direction_x, y, obj_collider)))
 	{	
 		x += player_speed * player_direction_x;
 	}
+	// animate the sprite for walking UNLESS on a zipline
+	if (not player_hanging)
+	{
+		image_index += .3;
+	}
 }
 
 
+// Update player position with movement in Y direction
 if (not (player_direction_y == 0))
 {
-	if (not (place_meeting(x, y+player_speed * player_direction_y, obj_collider)))
+	if (not (place_meeting(x, y+5 * player_direction_y, obj_collider)))
 	{	
 		y += player_speed_max * player_direction_y; // no acceleration on ladders
 	}
-	// special ladder check for vertical movement
-	// still some weird ladder behavior when at top, fix this later
-	if (not (place_meeting(x, y, obj_laddercollider)))
-	{	
-		player_direction_y = 0;
+	else
+	{
+		// special ladder check for vertical movement
+		if (not (place_meeting(x, y + 5 * player_direction_y, obj_laddercollider)))
+		{	
+			player_direction_y = 0;
+		}
 	}
-	
 }
 
 // Jump!
@@ -146,7 +153,7 @@ if player_jumping
 
 // gravity check, falling with collision check, also no gravity if on ladder, or on zipline
 // also increase gravity (silly acceleration, bad physics!) each step.
-if (not player_frozen) and (not player_hanging) and (not place_meeting(x,y+player_gravity, obj_collider)) and (not (place_meeting(x, y+player_speed * player_direction_x, obj_laddercollider)))
+if ((not player_frozen) and (not player_hanging) and (not place_meeting(x,y+player_gravity, obj_collider)) and (not (place_meeting(x, y + player_gravity, obj_laddercollider))))
 {
 	y += player_gravity;
 	player_gravity += 0.1;
@@ -268,6 +275,7 @@ else
 	player_hanging = false;
 }
 
+// animation for being invulnerable (fix later to be static, not random flashing)
 if player_invulnerable
 {
 	if (random(1) > 0.5)
@@ -290,18 +298,18 @@ if player_invulnerable
 } // end gameover check
 else // game really is over
 {
-	if mouse_check_button_pressed(mb_left)
+	if mouse_check_button_pressed(mb_left) or keyboard_check(ord("P")) or keyboard_check(ord("Q"))
 	{
 		tempx = window_mouse_get_x();
 		tempy = window_mouse_get_y();
 		show_debug_message("x: " + string(tempx) + " y: " + string(tempy));
-		if (tempx > 417 and tempx < 618 and tempy > 383 and tempy < 429)
+		if (tempx > 417 and tempx < 618 and tempy > 383 and tempy < 429) or keyboard_check(ord("P"))
 		{
 			show_debug_message("START NEW GAME");
 			global.gameover = false;
 			room_goto(0);
 		}
-		if (tempx > 871 and tempx < 1007 and tempy > 382 and tempy < 424)
+		if (tempx > 871 and tempx < 1007 and tempy > 382 and tempy < 424) or keyboard_check(ord("Q"))
 		{
 			show_debug_message("QUIT GAME");
 			mouse_clear(mb_left);

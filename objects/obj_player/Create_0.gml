@@ -25,3 +25,6 @@ player_invulnerable_timer = 0;
 player_powerup = false; // triggers when grabbing a diamond
 player_powerup_timer_max = 10000;
 player_powerup_timer = 0;
+
+// stop animation
+image_speed = 0;
