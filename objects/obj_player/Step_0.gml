@@ -106,7 +106,11 @@ if ((not (player_direction_x == 0)) and (not player_frozen))
 	// animate the sprite for walking UNLESS on a zipline
 	if (not player_hanging)
 	{
-		image_index += .3;
+		image_index += player_speed / 10;
+		if image_index > 6 // skip over falling frame
+		{
+			image_index = 0;
+		}
 	}
 }
 
@@ -157,11 +161,17 @@ if ((not player_frozen) and (not player_hanging) and (not place_meeting(x,y+play
 {
 	y += player_gravity;
 	player_gravity += 0.1;
+	image_index = 7;
+
 }
 else
 {
 	player_gravity = player_absolute_gravity;
 	player_jumping = false;
+	if image_index = 7
+	{
+		image_index = 0;
+	}
 }
 
 // coin check-- have you collected a coin?
@@ -269,6 +279,7 @@ temp_map_tile = tilemap_get_at_pixel(temp_map_id,x,y);
 if (temp_map_tile == 24 and (y mod 32 > 6) and (y mod 32 < 8))
 {
 		player_hanging = true;
+		image_index = 3; // legs go dangly when hanging
 }
 else
 {
