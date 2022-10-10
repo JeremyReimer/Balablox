@@ -30,6 +30,11 @@ if (keyboard_check(ord("C")))
 	select_level_num = 1;
 }
 
+if (keyboard_check(ord("O")))
+{
+	room_goto(RoomOptions);
+}
+
 if (keyboard_check_pressed(vk_up) and select_level)
 {
 	select_level_num += 1;

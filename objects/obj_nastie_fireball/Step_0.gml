@@ -28,3 +28,4 @@ if (x > window_get_width())
 {
 	instance_destroy();
 }
+
