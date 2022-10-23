@@ -82,7 +82,13 @@ else if (keyboard_check(ord("S")) or keyboard_check(vk_down))
 	{
 		player_direction_y = 1;
 	}
-	player_direction_x = 0;
+	player_direction_x = 0; // stop horizontal movement
+	
+	// check to see if you've reached the end of a ladder while climbing down
+	if place_meeting(x,y, obj_laddercollider) and (not place_meeting(x,y+5, obj_laddercollider))
+	{
+		player_direction_y = 1;
+	}
 
 	if player_hanging // can break player hanging with down key
 	{
