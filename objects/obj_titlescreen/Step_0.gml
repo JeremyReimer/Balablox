@@ -6,7 +6,7 @@
 if (keyboard_check(ord("S")))
 {
 	global.level = select_level_num;
-	room_goto(select_level_num);
+	room_goto(RoomIntro);
 }
 
 
