@@ -3,7 +3,4 @@
 
 // Can press spacebar to skip intro
 
-if (keyboard_check(vk_space))
-{
-	room_goto(global.level);
-}
+event_inherited();
