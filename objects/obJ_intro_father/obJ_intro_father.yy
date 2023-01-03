@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obJ_intro_father",
+  "name": "obj_intro_father",
   "spriteId": {
     "name": "spr_player_father",
     "path": "sprites/spr_player_father/spr_player_father.yy",
