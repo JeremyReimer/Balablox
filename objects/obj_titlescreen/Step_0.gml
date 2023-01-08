@@ -40,7 +40,7 @@ if (keyboard_check_pressed(vk_up) and select_level)
 	select_level_num += 1;
 	if select_level_num > select_level_max
 	{
-		select_level_num = select_level_max;
+		select_level_num = 1;
 	}
 }
 
@@ -49,6 +49,6 @@ if (keyboard_check_pressed(vk_down) and select_level)
 	select_level_num -= 1;
 	if select_level_num < 1
 	{
-		select_level_num = 1;
+		select_level_num = select_level_max;
 	}
 }

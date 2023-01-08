@@ -10,10 +10,14 @@
 // 3 - Jump up (ends after landing)
 // 4 - Say dialogue for certain time
 // 5 - Show surprise icon
-// 6 - New character appears (becomes visible)
+// 6 - Character becomes visible
 // 7 - Character animates to a certain frame
 // 8 - Character produces a new object (eg dragon)
-// 9 - Character disappears
+// 9 - Character doubles in size
+// 10 - Character disappears
+// 11 - Character changes sprite index
+// 12 - Character rotates and vanishes
+// 13 - Show heart icon
 // 
 // In an array, like ((2, 3, 1, 0) (3, 4, 1, 0) (5, 10, 4, 0)) 
 // - at two seconds, jump for 1 second
@@ -181,5 +185,28 @@ if current_move < array_length(move_list) // if we're out of moves, do nothing
 		case 11: // change sprite index
 			image_index = the_current_option;
 			break;
+			
+		case 12: // rotate and vanish
+			image_xscale = image_xscale * .9;
+			image_yscale = image_yscale * .9;
+			image_angle += 5;
+			break;
+			
+		case 13: // show hearts icon
+			if (not char_hearts)
+			{
+				char_hearts = true;
+				instance_create_layer(x-32,y-72,"Instances",obj_ending_heart,
+				{
+					creator: id // add variable for the instance of the object that created the surprise
+				}
+				);
+			}
+			break;
+			
+		case 14: // roll credits
+			char_roll_credits = true;
+			break;
+			
 	}
 }

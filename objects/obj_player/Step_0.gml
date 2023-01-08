@@ -207,7 +207,9 @@ if player_powerup
 	if keyboard_check_pressed(vk_enter) // Fire player fireball
 	{
 		instance_create_layer(x,y,"Instances",obj_player_fireball);	
+		audio_play_sound(snd_player_gun,10,false);
 	}
+
 	if current_time > player_powerup_timer
 	{
 		player_powerup = false;
@@ -273,6 +275,14 @@ if (spiderwebhit and (not spiderwebhit.var_spiderweb_broken))
 		}
 	}
 	
+}
+
+// did you get hit by a vortex?
+var vortexhit = instance_place(x,y,obj_vortex);
+if vortexhit
+{
+	x = global.player_respawn_x; // respawn to original load location
+	y = global.player_respawn_y;
 }
 
 // check to see if on a zipline tile
