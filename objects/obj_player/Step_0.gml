@@ -19,7 +19,7 @@ if player_accelerating
 	}
 }
 
-if (keyboard_check(ord("A")) or keyboard_check(vk_left))
+if gamepad_button_check(global.gamepad, gp_padl) or (keyboard_check(ord("A")) or keyboard_check(vk_left))
 {
 		if player_direction_x == 1
 		{
@@ -34,7 +34,7 @@ if (keyboard_check(ord("A")) or keyboard_check(vk_left))
 			player_decelerating = false;
 		}
 }
-else if (keyboard_check(ord("D")) or keyboard_check(vk_right))
+else if (gamepad_button_check(global.gamepad, gp_padr) or keyboard_check(ord("D")) or keyboard_check(vk_right))
 {
 		if player_direction_x == -1
 		{
@@ -66,7 +66,7 @@ if player_decelerating
 	}
 }
 
-if (keyboard_check(ord("W")) or keyboard_check(vk_up))
+if (gamepad_button_check(global.gamepad, gp_padu) or keyboard_check(ord("W")) or keyboard_check(vk_up))
 {
 	if place_meeting(x,y,obj_laddercollider)
 	{
@@ -75,7 +75,7 @@ if (keyboard_check(ord("W")) or keyboard_check(vk_up))
 	player_direction_x = 0;
 
 }
-else if (keyboard_check(ord("S")) or keyboard_check(vk_down))
+else if (gamepad_button_check(global.gamepad, gp_padd) or keyboard_check(ord("S")) or keyboard_check(vk_down))
 {
 	// check if you can go down ladder
 	if place_meeting(x,y+5,obj_laddercollider)
@@ -140,7 +140,7 @@ if (not (player_direction_y == 0))
 
 // Jump!
 
-if keyboard_check_pressed(vk_space)
+if (gamepad_button_check(global.gamepad, gp_shoulderlb) or keyboard_check_pressed(vk_space))
 {
 	player_jumping = true;
 	if player_hanging // if you jump while hanging you aren't hanging any more
@@ -204,7 +204,7 @@ if inst
 // are you SUPER POWERED???
 if player_powerup
 {
-	if keyboard_check_pressed(vk_enter) // Fire player fireball
+	if (gamepad_button_check_pressed(global.gamepad, gp_shoulderrb) or keyboard_check_pressed(vk_enter)) // Fire player fireball
 	{
 		instance_create_layer(x,y,"Instances",obj_player_fireball);	
 		audio_play_sound(snd_player_gun,10,false);

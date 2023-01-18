@@ -9,9 +9,9 @@ if intro_timer_time > intro_timer_end
 	room_goto(global.level);
 }
 
-// Can press spacebar to skip intro
+// Can press escape to skip intro
 
-if (keyboard_check(vk_space))
+if (keyboard_check(vk_escape))
 {
 	room_goto(global.level);
 }
