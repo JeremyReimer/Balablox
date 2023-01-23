@@ -140,7 +140,7 @@ if (not (player_direction_y == 0))
 
 // Jump!
 
-if (gamepad_button_check(global.gamepad, gp_shoulderlb) or keyboard_check_pressed(vk_space))
+if (gamepad_button_check_pressed(global.gamepad, gp_shoulderlb) or gamepad_button_check_pressed(global.gamepad, gp_face1) or keyboard_check_pressed(vk_space))
 {
 	player_jumping = true;
 	if player_hanging // if you jump while hanging you aren't hanging any more
