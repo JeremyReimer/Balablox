@@ -10,7 +10,7 @@ move_list = [[1,1,3,1], // at 1 second, start moving right at speed 1
 			 [4,1,7,1], // at 4 seconds, left
 			 [5,2,0,0], // at 5 seconds, stop
 			 [6,2,0,0], // at 6 seconds, stop
-			 [7,4,0,0], // at 7 seconds, talk
+			 [7,4,2,0], // at 7 seconds, talk speech #2
 			 [8,2,0,0], // at 8 seconds, stop
 			 [9,5,0,5],	  // at 9 seconds, surprise with jump
 			 [10,2,0,0],  // at 10 seconds, stop

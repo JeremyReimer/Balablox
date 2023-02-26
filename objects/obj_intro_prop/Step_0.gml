@@ -124,6 +124,14 @@ if current_move < array_length(move_list) // if we're out of moves, do nothing
 			{
 				char_talking = true;
 				instance_create_layer(x-32,y-96,"Instances",obj_intro_speech_bubble);
+				if the_current_option == 1
+				{
+					audio_play_sound(snd_speech_1,10,false);
+				}
+				if the_current_option == 2
+				{
+					audio_play_sound(snd_speech_2,10,false);
+				}
 			}
 			break;
 			

@@ -8,7 +8,7 @@ move_list = [[1,1,3,0.5], // at 1 second, start moving right
 			 [2,1,3,0],   // at 2 seconds, slow to a stop
 			 [3,1,3,0],   // at 3 seconds, slow to a stop
 			 [4,1,3,0],   // at 4 seconds, slow to a stop
-			 [5,4,0,0],   // at 5 seconds, talk
+			 [5,4,1,0],   // at 5 seconds, talk speech #1
 			 [6,2,0,0],	  // at 6 seconds, do nothing
 			 [7,2,0,0],	  // at 7 seconds, do nothing
 			 [8,2,0,0],	  // at 8 seconds, do nothing
