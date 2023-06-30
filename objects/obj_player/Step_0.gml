@@ -224,7 +224,22 @@ if keyend
 	instance_destroy(keyend);
 	audio_play_sound(snd_level_clear,10,false);
 	global.level += 1;
-	room_goto_next();
+	global.levels_completed += 1;
+	// wrap around if haven't done 15 levels yet
+	if global.level == 16 and global.levels_completed < 15
+	{
+		global.level = 1;
+		room_goto(1)
+	}
+	else if global.level < 16 and global.levels_completed >= 15
+	{
+		room_goto(16)
+	}
+	else
+	{
+    	room_goto_next();
+	}
+	
 }
 
 // death check -- did you die?
